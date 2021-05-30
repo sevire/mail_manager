@@ -1,0 +1,30 @@
+line...
+[string 1][string 2]
+
+string...
+(date:date) (time:time) item:itemkeyword (val1:value1), (val2:value2))
+
+(date)...
+Optional, date for update.  Default is date email sent
+
+(time)...
+Optional, time for update.  Default is time email sent
+
+itemkeyword
+Mandatory, report card item to be updated, valid values are...
+- web
+- fantasy
+- bed
+- up
+- wee
+- ...
+
+(value)
+Optional value.  Units dependent upon item, Default dependent upon item.
+- web (decimal hours, 0)
+- fantasy (occurrences, 1)
+- bed (date, time, emaildate, emailtime)
+- up (date, time, emaildate, emailtime)
+- wee (occurences, 1)
+- ...
+
