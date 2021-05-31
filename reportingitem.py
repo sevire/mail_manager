@@ -30,23 +30,23 @@ class ReportingItem:
     # in the time or date field (e.g. item 'up' needs a date and time.
     # Returns False if invalid data supplied, True otherwise
     def __init__(self, item, date, time, val):
-        print 'Initialising item <%s>...' % item
+        print('Initialising item <%s>...' % item)
         self.__value = None
         abort = False
         if not self.is_valid_item(item):
-            print 'invalid item <%s>, can\'t continue' % item
+            print('invalid item <%s>, can\'t continue' % item)
             abort = True
         else:
             self.__item = item
 
         if not abort and date is None:
-            print 'date is None, must be supplied, can\'t continue' % item
+            print('date is None, must be supplied, can\'t continue' % item)
             abort = True
         else:
             self.__date = date
 
         if not abort and time is None:
-            print 'time is None, must be supplied, can\'t continue' % item
+            print('time is None, must be supplied, can\'t continue' % item)
             abort = True
         else:
             self.__time = time
@@ -59,7 +59,7 @@ class ReportingItem:
 
             # if default value set to zero then value should have been supplied so abort, otherwise use default value.
             if self.__ITEMS[self.__item] == 0:
-                print 'Item <%s> needs a value, but none supplied, aborting' % self.__item
+                print('Item <%s> needs a value, but none supplied, aborting' % self.__item)
                 abort = True
             else:
                 self.__input_value = self.__ITEMS[self.__item][0]
@@ -78,13 +78,13 @@ class ReportingItem:
                 self.__value = self.time_to_minutes_after_cutoff(self.__date, self.__time, self.__item)
             else:
                 # Combination not recognised so abort
-                print 'Unit conversion <%s> --> <%s> not recognised, aborting' % \
+                print('Unit conversion <%s> --> <%s> not recognised, aborting' % \
                       (self.__ITEMS[self.__item][1],
-                       self.__ITEMS[self.__item][2])
+                       self.__ITEMS[self.__item][2]))
                 abort = True
 
         if not abort:
-            print "Item <%s> created" % self.__item
+            print("Item <%s> created" % self.__item)
 
     def get_item(self):
         return self.__item
@@ -100,12 +100,12 @@ class ReportingItem:
         return self.__value
 
     def print_fields(self):
-        print '\nPrinting item <%s>...' % self.__item
-        print 'date:            %s' % self.__date
-        print 'time:            %s' % self.__time
-        print 'item:            %s' % self.__item
-        print 'val:             %s' % str(self.__input_value)
-        print 'converted val:   %s\n' % str(self.__value)
+        print('\nPrinting item <%s>...' % self.__item)
+        print('date:            %s' % self.__date)
+        print('time:            %s' % self.__time)
+        print('item:            %s' % self.__item)
+        print('val:             %s' % str(self.__input_value))
+        print('converted val:   %s\n' % str(self.__value))
 
     @staticmethod
     def time_to_minutes_after_cutoff(date, time, item):

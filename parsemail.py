@@ -1,11 +1,11 @@
 import mailmanager
 import reportitemmanager
 
-mail_manager = mailmanager.MailManager('mail.genonline.co.uk', 'plreportcard@genonline.co.uk', '314Everest')
+mail_manager = mailmanager.MailManager('mail.genonline.co.uk', 'plreportcard@genonline.co.uk', 'SnowdonLuthi@r3141')
 parser = reportitemmanager.ReportItemManager()
 
 mail_manager.connect()
-mails = mail_manager.get_mails()
+mails = mail_manager.get_emails()
 
 date, time, subject = mail_manager.get_next_mail_data()
 if subject is not None:

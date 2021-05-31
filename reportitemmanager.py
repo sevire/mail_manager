@@ -43,7 +43,7 @@ class ReportItemManager(object):
                 match = True
                 parsed = True
             except:
-                print 'No match for date with format <%s>' % format_string
+                print(f'No match for date with format {format_string}')
             if not match:
                 format_string = "%Y/%m/%d"
                 try:
@@ -51,7 +51,7 @@ class ReportItemManager(object):
                     match = True
                     parsed = True
                 except:
-                    print 'No match for date with format <%s>' % format_string
+                    print(f'No match for date with format {format_string}')
         elif key == 'time':
             match = False
             format_string = "%H:%M"
@@ -60,7 +60,7 @@ class ReportItemManager(object):
                 match = True
                 parsed = True
             except:
-                print 'No match for time with format <%s>' % format_string
+                print(f'No match for time with format {format_string}')
         elif key == 'item':
             if reportingitem.ReportingItem.is_valid_item(value):
                 self.item = value
